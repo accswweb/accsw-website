@@ -16,7 +16,7 @@ Usage:
     python3 build.py
 
 GitHub Pages setup (after pushing to GitHub):
-    Settings → Pages → Source: Deploy from branch → Branch: main, Folder: /docs
+    Settings → Pages → Source: Deploy from branch → Branch: main
 """
 
 import os
@@ -25,7 +25,7 @@ import shutil
 from pathlib import Path
 
 WORKSPACE = Path(__file__).parent
-DOCS = WORKSPACE / 'docs'
+DOCS = WORKSPACE
 
 # ─── File map ─────────────────────────────────────────────────────────────────
 # source path (relative to WORKSPACE)  →  dest path (relative to DOCS)
