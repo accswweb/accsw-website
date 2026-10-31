@@ -72,8 +72,15 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // Header Scroll State: Clear navbar until scrolled down
+  // Header Dynamic Height & Scroll State Management
   const header = document.querySelector('.site-header');
+  const updateHeaderHeight = () => {
+    if (header) {
+      const height = header.offsetHeight;
+      document.documentElement.style.setProperty('--header-actual-height', `${height}px`);
+    }
+  };
+
   if (header) {
     const updateHeaderState = () => {
       if (window.scrollY > 20) {
@@ -84,7 +91,26 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     updateHeaderState();
+    updateHeaderHeight();
+
     window.addEventListener('scroll', updateHeaderState, { passive: true });
+    window.addEventListener('resize', updateHeaderHeight, { passive: true });
+    window.addEventListener('orientationchange', updateHeaderHeight, { passive: true });
+
+    // Single Toggle for Announcement Banner:
+    // Can be called programmatically via `window.toggleAnnouncementBanner(true|false)`
+    // or by toggling class 'banner-off' on .site-header.
+    window.toggleAnnouncementBanner = (show) => {
+      const banner = document.querySelector('.announcement-banner');
+      if (!banner || !header) return;
+
+      const willShow = typeof show === 'boolean' ? show : header.classList.contains('banner-off');
+      header.classList.toggle('banner-off', !willShow);
+      updateHeaderHeight();
+    };
+
+    // Ensure height is accurate after fonts / images load
+    window.addEventListener('load', updateHeaderHeight);
   }
 
   // Dynamic Client-Side Bulletin Discovery:

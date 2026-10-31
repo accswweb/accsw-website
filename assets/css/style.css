@@ -30,6 +30,7 @@
   --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.06);
   --shadow-md: 0 6px 20px rgba(0, 0, 0, 0.08);
   --shadow-lg: 0 12px 30px rgba(0, 0, 0, 0.12);
+  --header-actual-height: 84px;
 }
 
 /* Base & Reset */
@@ -302,6 +303,14 @@ li {
   border: 1px solid var(--border-light);
   border-radius: var(--border-radius-pill);
   font-size: 0.85rem;
+  cursor: pointer;
+  background-color: transparent;
+  font-family: inherit;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  transition: all var(--transition-speed) ease;
 }
 
 .lang-switch:hover {
@@ -358,8 +367,8 @@ li {
   bottom: 0;
   z-index: 999;
   background-color: var(--bg-white);
-  /* push content below the 84px header bar */
-  padding: calc(84px + 1.75rem) 1.75rem 3rem;
+  /* Dynamically push content below the header bar */
+  padding: calc(var(--header-actual-height, 84px) + 1.75rem) 1.75rem 3rem;
   overflow-y: auto;
   flex-direction: column;
   align-items: stretch;
@@ -436,7 +445,7 @@ li {
   min-height: 100vh;
   min-height: 100svh;
   box-sizing: border-box;
-  padding-top: calc(84px + 3rem);
+  padding-top: calc(var(--header-actual-height, 84px) + 3rem);
   padding-bottom: 3.5rem;
   display: flex;
   align-items: center;
@@ -1738,7 +1747,7 @@ html[lang="zh"] .page-hero .hero-tagline {
     min-height: auto;
     background-size: cover;
     background-position: center right;
-    padding-top: calc(84px + 3.5rem);
+    padding-top: calc(var(--header-actual-height, 84px) + 3.5rem);
     padding-bottom: 4.5rem;
   }
 
@@ -1926,3 +1935,495 @@ html[lang="zh"] .page-hero .hero-tagline {
     padding: 1.75rem 1.5rem;
   }
 }
+
+/* ==========================================================================
+   Relocation / Move Announcement & Page Styles
+   ========================================================================== */
+
+/* Top Announcement Bar (for Home & Move Pages) */
+.announcement-banner {
+  background: linear-gradient(135deg, #642992 0%, #4B1A70 100%);
+  color: #FFFFFF;
+  padding: 0.55rem 1rem;
+  font-size: 0.875rem;
+  width: 100%;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.12);
+  position: relative;
+  z-index: 1001;
+}
+
+.announcement-banner-inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  text-align: center;
+}
+
+.announcement-text {
+  font-weight: 500;
+}
+
+.announcement-link {
+  color: #FFFFFF;
+  text-decoration: underline;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  transition: opacity var(--transition-speed);
+}
+
+.announcement-link:hover {
+  opacity: 0.85;
+}
+
+/* Announcement Banner Single Toggle & Spacing Controls */
+.site-header.banner-off .announcement-banner,
+.announcement-banner.hidden {
+  display: none !important;
+}
+
+/* Fallback header height variables before JS initializes */
+.site-header.has-announcement {
+  --header-actual-height: 120px;
+}
+
+@media (max-width: 768px) {
+  .site-header.has-announcement {
+    --header-actual-height: 148px;
+  }
+}
+
+.site-header.banner-off {
+  --header-actual-height: 84px !important;
+}
+
+/* Move Status Hero Badge & Banner */
+.move-hero {
+  background: linear-gradient(180deg, #F8F5FA 0%, #FFFFFF 100%);
+  padding: 4rem 0 3rem;
+  text-align: center;
+  border-bottom: 1px solid var(--border-light);
+}
+
+.move-hero-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: rgba(100, 41, 146, 0.08);
+  color: var(--primary-color);
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  padding: 0.35rem 1rem;
+  border-radius: var(--border-radius-pill);
+  margin-bottom: 1rem;
+}
+
+.move-hero-title {
+  font-size: 2.5rem;
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+  line-height: 1.25;
+}
+
+.move-hero-desc {
+  font-size: 1.15rem;
+  color: var(--text-muted);
+  max-width: 780px;
+  margin: 0 auto 2rem;
+  line-height: 1.7;
+}
+
+/* Move Language Switcher Pill Container (for bilingual /move) */
+.move-lang-switch-wrap {
+  display: inline-flex;
+  background: #EDE8F4;
+  padding: 4px;
+  border-radius: var(--border-radius-pill);
+  margin-bottom: 2rem;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+.move-lang-btn {
+  padding: 8px 22px;
+  border-radius: var(--border-radius-pill);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--primary-color);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  font-family: var(--font-family);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+}
+
+.move-lang-btn.active, .move-lang-btn:hover {
+  background: var(--primary-color);
+  color: #FFFFFF;
+  box-shadow: 0 2px 6px rgba(100, 41, 146, 0.3);
+}
+
+/* Move Date Highlight Banner */
+.move-date-banner {
+  background: #FFFFFF;
+  border: 2px solid #E9D5FF;
+  border-left: 6px solid var(--primary-color);
+  border-radius: var(--border-radius-card);
+  padding: 1.5rem 2rem;
+  max-width: 860px;
+  margin: 0 auto 2rem;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  text-align: left;
+}
+
+@media (max-width: 768px) {
+  .move-date-banner {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1.25rem 1.5rem;
+  }
+}
+
+.move-date-content h3 {
+  font-size: 1.25rem;
+  color: var(--primary-color);
+  margin-bottom: 0.35rem;
+}
+
+.move-date-content p {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  margin: 0;
+  line-height: 1.55;
+}
+
+.move-date-badge-wrap {
+  flex-shrink: 0;
+}
+
+/* TBD Badges - Purple text on soft purple background */
+.tbd-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  background-color: rgba(100, 41, 146, 0.08);
+  color: var(--primary-color);
+  font-weight: 700;
+  font-size: 0.85rem;
+  letter-spacing: 0.5px;
+  padding: 0.35rem 0.85rem;
+  border-radius: var(--border-radius-pill);
+  border: 1px solid rgba(100, 41, 146, 0.2);
+  white-space: nowrap;
+}
+
+.tbd-badge.lg {
+  font-size: 1.05rem;
+  padding: 0.5rem 1.25rem;
+}
+
+/* Move Details Cards Grid */
+.move-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+}
+
+@media (max-width: 992px) {
+  .move-cards-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .move-cards-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.move-info-card {
+  background: var(--bg-white);
+  border: 1px solid var(--border-light);
+  border-radius: var(--border-radius-card);
+  padding: 1.75rem 1.5rem;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+}
+
+.move-info-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+}
+
+.move-card-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background-color: rgba(100, 41, 146, 0.08);
+  color: var(--primary-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.35rem;
+  margin-bottom: 1rem;
+}
+
+.move-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+
+.move-card-title {
+  font-size: 1.15rem;
+  color: var(--text-primary);
+  font-weight: 700;
+  margin: 0;
+}
+
+.move-card-body {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+  flex-grow: 1;
+}
+
+.move-card-body p + p {
+  margin-top: 0.5rem;
+}
+
+.move-card-highlight {
+  font-weight: 600;
+  color: var(--primary-color);
+}
+
+/* Route & Directions Section */
+.move-route-panel {
+  background: var(--bg-white);
+  border: 1px solid var(--border-light);
+  border-radius: var(--border-radius-card);
+  padding: 2.25rem 2rem;
+  box-shadow: var(--shadow-sm);
+  margin-bottom: 3rem;
+}
+
+.move-route-compare {
+  display: flex;
+  align-items: stretch;
+  gap: 1.25rem;
+  margin-bottom: 2rem;
+}
+
+@media (max-width: 768px) {
+  .move-route-compare {
+    flex-direction: column;
+  }
+}
+
+.route-stop {
+  flex: 1;
+  background: var(--bg-overlay);
+  border: 1px solid var(--border-light);
+  border-radius: 12px;
+  padding: 1.25rem;
+}
+
+.route-stop.new-location {
+  background: #FAF7FC;
+  border-color: #D8B4E2;
+}
+
+.route-stop-label {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: var(--text-light);
+  margin-bottom: 0.35rem;
+}
+
+.route-stop.new-location .route-stop-label {
+  color: var(--primary-color);
+}
+
+.route-stop-name {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 0.25rem;
+}
+
+.route-stop-addr {
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  line-height: 1.45;
+}
+
+.route-connector {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0 0.5rem;
+}
+
+.route-connector-pill {
+  background: var(--primary-color);
+  color: #FFFFFF;
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 0.4rem 0.85rem;
+  border-radius: var(--border-radius-pill);
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+/* Step by Step Directions */
+.move-steps-list {
+  list-style: none;
+  counter-reset: step-counter;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  margin: 1.5rem 0 2rem;
+}
+
+@media (max-width: 768px) {
+  .move-steps-list {
+    grid-template-columns: 1fr;
+  }
+}
+
+.move-step-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.85rem;
+  background: var(--bg-overlay);
+  border-radius: 10px;
+  padding: 1rem 1.15rem;
+  font-size: 0.95rem;
+  color: var(--text-primary);
+  line-height: 1.55;
+}
+
+.move-step-num {
+  flex-shrink: 0;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--primary-color);
+  color: #FFFFFF;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+/* Responsive Map Embed */
+.move-map-frame-wrap {
+  position: relative;
+  width: 100%;
+  height: 380px;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid var(--border-light);
+  box-shadow: var(--shadow-sm);
+  margin-bottom: 1.5rem;
+}
+
+.move-map-frame-wrap iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.move-actions-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+}
+
+/* Pastoral Letter / FAQ Cards */
+.move-letter-box {
+  background: #FAF7FC;
+  border: 1px solid #E4D9F0;
+  border-radius: var(--border-radius-card);
+  padding: 2.25rem;
+  margin-bottom: 3rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.move-letter-box h3 {
+  font-size: 1.4rem;
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+}
+
+.move-letter-box p {
+  font-size: 1.025rem;
+  line-height: 1.75;
+  color: var(--text-primary);
+  margin-bottom: 1.25rem;
+}
+
+.move-letter-box p:last-child {
+  margin-bottom: 0;
+}
+
+.move-faq-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+@media (max-width: 768px) {
+  .move-faq-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.move-faq-card {
+  background: var(--bg-white);
+  border: 1px solid var(--border-light);
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.move-faq-q {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--primary-color);
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+
+.move-faq-a {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+

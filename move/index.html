@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Upcoming Campus Move / 聚會地點搬遷公告 – Austin Chinese Church Southwest</title>
+  <link rel="icon" type="image/png" href="../assets/images/favicon.png">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <style>
+    /* Instant Language Toggle Display Control */
+    html:not([lang="zh"]) .lang-zh { display: none !important; }
+    html[lang="zh"] .lang-en { display: none !important; }
+  </style>
+</head>
+<body>
+
+  <!-- Site Header -->
+  <header class="site-header">
+    <div class="container header-container">
+      <a href="../en/" class="logo-link">
+        <img src="../assets/images/logo.png" alt="Austin Chinese Church Southwest">
+      </a>
+      
+      <!-- English Main Nav -->
+      <nav class="main-nav lang-en">
+        <ul class="nav-menu">
+          <li><a href="../en/" class="nav-link">Home</a></li>
+          <li><a href="../en/about/" class="nav-link">About</a></li>
+          <li><a href="../en/connect/" class="nav-link">Connect</a></li>
+          <li><a href="../bulletins/SW-2026-09-20.pdf" class="nav-link" target="_blank" rel="noopener noreferrer">Bulletin</a></li>
+          <li><a href="https://www.youtube.com/@accsouthwest" class="nav-link" target="_blank" rel="noopener noreferrer">Sermons</a></li>
+        </ul>
+      </nav>
+
+      <!-- Chinese Main Nav -->
+      <nav class="main-nav lang-zh">
+        <ul class="nav-menu">
+          <li><a href="../zh/" class="nav-link">主頁</a></li>
+          <li><a href="../zh/about/" class="nav-link">關於我們</a></li>
+          <li><a href="../zh/connect/" class="nav-link">崇拜與聚會</a></li>
+          <li><a href="../bulletins/SW-2026-09-20.pdf" class="nav-link" target="_blank" rel="noopener noreferrer">主日週報</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <!-- Interactive Language Switcher Pill -->
+        <button type="button" class="lang-switch" id="headerLangToggle" onclick="toggleLanguage()" aria-label="Switch Language">
+          <span class="lang-en">中文</span>
+          <span class="lang-zh">English</span>
+        </button>
+        <a href="https://acc.churchcenter.com/giving" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+          <span class="lang-en">GIVING</span>
+          <span class="lang-zh">奉獻</span>
+        </a>
+      </div>
+
+      <button class="mobile-toggle" aria-label="Toggle Navigation Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div class="mobile-drawer">
+    <ul class="nav-menu lang-en">
+      <li><a href="../en/" class="nav-link">Home</a></li>
+      <li><a href="../en/about/" class="nav-link">About</a></li>
+      <li><a href="../en/connect/" class="nav-link">Connect</a></li>
+      <li><a href="../bulletins/SW-2026-09-20.pdf" class="nav-link" target="_blank" rel="noopener noreferrer">Bulletin</a></li>
+      <li><a href="https://www.youtube.com/@accsouthwest" class="nav-link" target="_blank" rel="noopener noreferrer">Sermons</a></li>
+    </ul>
+    <ul class="nav-menu lang-zh">
+      <li><a href="../zh/" class="nav-link">主頁</a></li>
+      <li><a href="../zh/about/" class="nav-link">關於我們</a></li>
+      <li><a href="../zh/connect/" class="nav-link">崇拜與聚會</a></li>
+      <li><a href="../bulletins/SW-2026-09-20.pdf" class="nav-link" target="_blank" rel="noopener noreferrer">主日週報</a></li>
+    </ul>
+    <div class="header-actions" style="margin-top: 1.5rem; justify-content: center; gap: 1rem;">
+      <button type="button" class="lang-switch" onclick="toggleLanguage()">
+        <span class="lang-en">切換至中文</span>
+        <span class="lang-zh">Switch to English</span>
+      </button>
+      <a href="https://acc.churchcenter.com/giving" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+        <span class="lang-en">GIVING</span>
+        <span class="lang-zh">奉獻</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- Page Hero -->
+  <section class="move-hero">
+    <div class="container">
+
+      <!-- Language Selector Bar -->
+      <div class="move-lang-switch-wrap">
+        <button type="button" class="move-lang-btn active" id="btnLangEn" onclick="setLanguage('en')">English</button>
+        <button type="button" class="move-lang-btn" id="btnLangZh" onclick="setLanguage('zh')">繁體中文</button>
+      </div>
+
+      <!-- ================= ENGLISH HERO ================= -->
+      <div class="lang-en">
+        <h1 class="move-hero-title">We're Moving to Valley View Elementary!</h1>
+        <p class="move-hero-desc">
+          Austin Chinese Church Southwest is preparing to transition its Sunday worship location from Cedar Creek Elementary to Valley View Elementary nearby.
+        </p>
+
+        <!-- Move Date Banner -->
+        <div class="move-date-banner">
+          <div class="move-date-content">
+            <h3>Confirmed Move Date</h3>
+            <p>
+              We are currently finalizing the transition timeline with Eanes ISD. Sunday worship and Sunday school will <strong>continue at Cedar Creek Elementary</strong> as usual until the official date is confirmed.
+            </p>
+          </div>
+          <div class="move-date-badge-wrap">
+            <span class="tbd-badge lg">To Be Announced</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- ================= CHINESE HERO ================= -->
+      <div class="lang-zh">
+        <h1 class="move-hero-title">西南聚會點即將搬遷至 Valley View Elementary！</h1>
+        <p class="move-hero-desc">
+          奧斯汀華人教會 – 西南即將由目前的 Cedar Creek Elementary 遷移至附近的 Valley View Elementary。以下為全體弟兄姊妹及新朋友整理的各項搬遷資訊與指引。
+        </p>
+
+        <!-- Move Date Banner -->
+        <div class="move-date-banner">
+          <div class="move-date-content">
+            <h3>確切搬遷首日</h3>
+            <p>
+              我們目前正與 Eanes 學區確認最終時程表。在官方確切搬遷日期公佈之前，主日崇拜與主日學將<strong>繼續在 Cedar Creek Elementary 照常舉行</strong>。
+            </p>
+          </div>
+          <div class="move-date-badge-wrap">
+            <span class="tbd-badge lg">即將公佈</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       SECTION 1: KEY INFORMATION CARDS
+       ========================================================================= -->
+  <section class="section">
+    <div class="container">
+
+      <!-- English Section Header -->
+      <div class="section-header lang-en">
+        <h2 class="section-title">New Campus Overview</h2>
+      </div>
+
+      <!-- Chinese Section Header -->
+      <div class="section-header lang-zh">
+        <h2 class="section-title">新聚會點資訊概覽</h2>
+        <p class="section-desc">前往 Valley View Elementary 參加主日聚會的核心資訊指南。</p>
+      </div>
+
+      <div class="move-cards-grid">
+        <!-- Card 1: New Location -->
+        <div class="move-info-card">
+          <div class="move-card-header">
+            <h3 class="move-card-title">
+              <span class="lang-en">New Address</span>
+              <span class="lang-zh">新聚會點地址</span>
+            </h3>
+          </div>
+          <div class="move-card-body">
+            <p class="move-card-highlight">Valley View Elementary School</p>
+            <p>1201 S Capital of Texas Hwy (Loop 360)<br>Austin, TX 78746</p>
+            <p style="font-size: 0.85rem; color: var(--text-light); margin-top: 0.5rem;" class="lang-en">
+              Located only 3.5 miles (~5–8 min drive) northwest of Cedar Creek Elementary.
+            </p>
+            <p style="font-size: 0.85rem; color: var(--text-light); margin-top: 0.5rem;" class="lang-zh">
+              位於 Loop 360 旁，距離目前的 Cedar Creek Elementary 僅約 3.5 英里（車程 5–8 分鐘）。
+            </p>
+          </div>
+          <div style="margin-top: 1rem;">
+            <a href="https://www.google.com/maps/search/?api=1&query=Valley+View+Elementary+School+1201+S+Capital+of+Texas+Hwy+Austin+TX+78746" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="font-size: 0.7rem; padding: 8px 16px;">
+              <span class="lang-en">Open Map &rarr;</span>
+              <span class="lang-zh">開啟地圖 &rarr;</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Card 2: Move Date -->
+        <div class="move-info-card">
+          <div class="move-card-header">
+            <h3 class="move-card-title">
+              <span class="lang-en">Move Date</span>
+              <span class="lang-zh">確切搬遷日期</span>
+            </h3>
+          </div>
+          <div class="move-card-body">
+            <div class="lang-en">
+              <p class="move-card-highlight">First Sunday at Valley View</p>
+              <p>The confirmed start date is currently being coordinated. We will update this page and announce it during Sunday services as soon as it is determined.</p>
+              <p style="font-size: 0.85rem; color: var(--text-light); margin-top: 0.5rem;">
+                Until then, meet us Sundays at Cedar Creek Elementary!
+              </p>
+            </div>
+            <div class="lang-zh">
+              <p class="move-card-highlight">Valley View 首個主日聚會</p>
+              <p>確切搬遷日期正等待學區最終確認。一旦日程確定，我們將立即在此更新，並於主日崇拜中向全教會宣布。</p>
+              <p style="font-size: 0.85rem; color: var(--text-light); margin-top: 0.5rem;">
+                在此之前，請大家繼續至 Cedar Creek Elementary 聚會！
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 3: Service Times -->
+        <div class="move-info-card">
+          <div class="move-card-header">
+            <h3 class="move-card-title">
+              <span class="lang-en">Service Times</span>
+              <span class="lang-zh">聚會時間</span>
+            </h3>
+          </div>
+          <div class="move-card-body">
+            <div class="lang-en">
+              <p class="move-card-highlight">Schedule Expected to Remain:</p>
+              <p><strong>10:00 AM – 11:00 AM</strong><br>Adult Bible Fellowship, Youth Ministry &amp; Children’s Program</p>
+              <p style="margin-top: 0.5rem;"><strong>11:15 AM – 12:35 PM</strong><br>Sunday Worship Service (Bilingual Chinese &amp; English)</p>
+              <p style="font-size: 0.85rem; color: var(--text-light); margin-top: 0.5rem;">
+                Pending final confirmation with campus facilities.
+              </p>
+            </div>
+            <div class="lang-zh">
+              <p class="move-card-highlight">預計維持現行時間表：</p>
+              <p><strong>10:00 AM – 11:00 AM</strong><br>成人主日學、青少年團契、兒童主日學</p>
+              <p style="margin-top: 0.5rem;"><strong>11:15 AM – 12:35 PM</strong><br>主日崇拜（中英文雙語敬拜與講道信息）</p>
+              <p style="font-size: 0.85rem; color: var(--text-light); margin-top: 0.5rem;">
+                （待場地使用安排最後確認）
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       SECTION 2: DIRECTIONS & INTERACTIVE MAP
+       ========================================================================= -->
+  <section class="section section-alt">
+    <div class="container">
+
+      <!-- English Section Header -->
+      <div class="section-header lang-en">
+        <h2 class="section-title">Directions &amp; Map</h2>
+        <p class="section-desc">How to get to Valley View Elementary from our current Cedar Creek Elementary location.</p>
+      </div>
+
+      <!-- Chinese Section Header -->
+      <div class="section-header lang-zh">
+        <h2 class="section-title">交通路線與地圖指引</h2>
+        <p class="section-desc">從目前的 Cedar Creek Elementary 出發前往新地點 Valley View Elementary。</p>
+      </div>
+
+      <div class="move-route-panel">
+        <!-- Visual Route Comparison -->
+        <div class="move-route-compare">
+          <div class="route-stop">
+            <div class="route-stop-label">
+              <span class="lang-en">Current Campus</span>
+              <span class="lang-zh">目前聚會地點</span>
+            </div>
+            <div class="route-stop-name">Cedar Creek Elementary</div>
+            <div class="route-stop-addr">3301 Pinnacle Rd<br>Austin, TX 78746</div>
+          </div>
+
+          <div class="route-connector">
+            <div class="route-connector-pill">
+              <span class="lang-en">~3.5 miles &bull; 5–8 mins</span>
+              <span class="lang-zh">約 3.5 英里 &bull; 車程 5–8 分鐘</span>
+            </div>
+          </div>
+
+          <div class="route-stop new-location">
+            <div class="route-stop-label">
+              <span class="lang-en">New Campus</span>
+              <span class="lang-zh">新聚會地點</span>
+            </div>
+            <div class="route-stop-name">Valley View Elementary</div>
+            <div class="route-stop-addr">1201 S Capital of Texas Hwy<br>Austin, TX 78746</div>
+          </div>
+        </div>
+
+        <!-- Map Embed -->
+        <div class="move-map-frame-wrap">
+          <iframe
+            title="Valley View Elementary School Location Map"
+            src="https://maps.google.com/maps?q=Valley+View+Elementary+School,+1201+S+Capital+of+Texas+Hwy,+Austin,+TX+78746&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=&amp;output=embed"
+            loading="lazy"
+            allowfullscreen>
+          </iframe>
+        </div>
+
+        <!-- Navigation Buttons -->
+        <div class="move-actions-group">
+          <a href="https://www.google.com/maps/dir/Cedar+Creek+Elementary+School,+3301+Pinnacle+Rd,+Austin,+TX+78746/Valley+View+Elementary+School,+1201+S+Capital+of+Texas+Hwy,+Austin,+TX+78746" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+            <span class="lang-en">Directions from Cedar Creek &rarr;</span>
+            <span class="lang-zh">Google 地圖路線導航 &rarr;</span>
+          </a>
+          <a href="https://www.google.com/maps/search/?api=1&query=Valley+View+Elementary+School+1201+S+Capital+of+Texas+Hwy+Austin+TX+78746" target="_blank" rel="noopener noreferrer" class="btn btn-outline">
+            <span class="lang-en">Open in Google Maps</span>
+            <span class="lang-zh">在 Google 地圖中開啟</span>
+          </a>
+          <a href="https://maps.apple.com/?daddr=1201+S+Capital+of+Texas+Hwy,+Austin,+TX+78746" target="_blank" rel="noopener noreferrer" class="btn btn-outline">
+            <span class="lang-en">Open in Apple Maps</span>
+            <span class="lang-zh">在 Apple 地圖中開啟</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="container footer-top">
+      <div class="footer-col">
+        <img src="../assets/images/logo-white.png" alt="Austin Chinese Church Southwest" class="footer-logo">
+        <p style="margin-top: 0.75rem; color: rgba(255,255,255,0.9); font-weight: 500;">
+          <span class="lang-en">Austin Chinese Church Southwest</span>
+          <span class="lang-zh">奧斯汀華人教會 – 西南</span>
+        </p>
+        <p style="margin-top: 0.35rem; font-size: 0.9rem;">Cedar Creek Elementary School<br>3301 Pinnacle Rd, Austin, TX 78746</p>
+        <p style="margin-top: 0.6rem;">
+          <a href="https://goo.gl/maps/671dHTtcB1BxRE528" target="_blank" rel="noopener noreferrer" style="color: #FFFFFF; text-decoration: underline;" class="lang-en">View on Google Maps &rarr;</a>
+          <a href="https://goo.gl/maps/671dHTtcB1BxRE528" target="_blank" rel="noopener noreferrer" style="color: #FFFFFF; text-decoration: underline;" class="lang-zh">Google 地圖導航 &rarr;</a>
+        </p>
+      </div>
+
+      <div class="footer-col">
+        <h5>
+          <span class="lang-en">Worship with Us</span>
+          <span class="lang-zh">主日聚會</span>
+        </h5>
+        <p>
+          <strong class="lang-en">Sunday Schedule:</strong>
+          <strong class="lang-zh">主日時間表:</strong>
+        </p>
+        <p style="font-size: 0.9rem;">
+          <span class="lang-en">10:00 AM – 11:00 AM<br>Adult Bible Fellowship &amp; Youth/Children's Sunday School</span>
+          <span class="lang-zh">10:00 AM – 11:00 AM<br>成人主日學, 兒童主日學, 青少年節目</span>
+        </p>
+        <p style="font-size: 0.9rem; margin-top: 0.5rem;">
+          <span class="lang-en">11:15 AM – 12:35 PM<br>Sunday Worship Service<br>(Bilingual / Chinese &amp; English)</span>
+          <span class="lang-zh">11:15 AM – 12:35 PM<br>主日崇拜<br>(中英文雙語詩歌敬拜與講道信息)</span>
+        </p>
+      </div>
+
+      <div class="footer-col">
+        <h5>
+          <span class="lang-en">Contact Us</span>
+          <span class="lang-zh">聯絡我們</span>
+        </h5>
+        <p style="font-size: 0.9rem;">
+          <span class="lang-en">Phone: </span>
+          <span class="lang-zh">電話: </span>
+          <a href="tel:5123398675">(512) 339-8675</a>
+        </p>
+        <p style="font-size: 0.9rem; margin-top: 0.5rem;">
+          <a href="https://austinchinesechurch.org" target="_blank" rel="noopener noreferrer" style="color: rgba(255,255,255,0.85); text-decoration: underline;">
+            <span class="lang-en">ACC Main Campus &rarr;</span>
+            <span class="lang-zh">奧斯汀華人教會本部 &rarr;</span>
+          </a>
+        </p>
+      </div>
+    </div>
+
+    <div class="container footer-bottom">
+      <div>
+        <span class="lang-en">Copyright &copy; 2026 Austin Chinese Church Southwest. All Rights Reserved.</span>
+        <span class="lang-zh">版權所有 &copy; 2026 奧斯汀華人教會 – 西南。保留所有權利。</span>
+      </div>
+      <div>
+        <a href="../en/legal/" class="lang-en">Notices</a>
+        <a href="../en/legal/" class="lang-zh">聲明與條款</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../assets/js/main.js"></script>
+  <script>
+    // Language Toggle Handling
+    function setLanguage(lang) {
+      if (lang === 'zh') {
+        document.documentElement.lang = 'zh';
+        document.getElementById('btnLangZh').classList.add('active');
+        document.getElementById('btnLangEn').classList.remove('active');
+        try { localStorage.setItem('accsw_move_lang', 'zh'); } catch(e) {}
+      } else {
+        document.documentElement.lang = 'en';
+        document.getElementById('btnLangEn').classList.add('active');
+        document.getElementById('btnLangZh').classList.remove('active');
+        try { localStorage.setItem('accsw_move_lang', 'en'); } catch(e) {}
+      }
+    }
+
+    function toggleLanguage() {
+      const current = document.documentElement.lang === 'zh' ? 'zh' : 'en';
+      setLanguage(current === 'zh' ? 'en' : 'zh');
+    }
+
+    // Auto-detect initial language preference
+    (function initLang() {
+      const urlParams = new URLSearchParams(window.location.search);
+      const paramLang = urlParams.get('lang');
+      const hash = (window.location.hash || '').toLowerCase();
+      let storedLang = null;
+      try { storedLang = localStorage.getItem('accsw_move_lang'); } catch(e) {}
+
+      if (paramLang === 'zh' || hash.includes('zh') || storedLang === 'zh') {
+        setLanguage('zh');
+      } else if (paramLang === 'en' || hash.includes('en') || storedLang === 'en') {
+        setLanguage('en');
+      } else {
+        const browserLang = (navigator.language || navigator.userLanguage || '').toLowerCase();
+        if (browserLang.startsWith('zh')) {
+          setLanguage('zh');
+        } else {
+          setLanguage('en');
+        }
+      }
+    })();
+  </script>
+</body>
+</html>
