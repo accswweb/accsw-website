@@ -2,5 +2,5 @@
 
 Drop weekly bulletin PDF files into this folder.
 
-Suggested naming convention: `YYYY-MM-DD.pdf`
-Example: `2025-09-21.pdf`
+Naming convention: `SW-YYYY-MM-DD.pdf`
+Example: `SW-2026-11-01.pdf`
