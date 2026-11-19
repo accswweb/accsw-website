@@ -86,6 +86,118 @@
 
   // 3. Standard Page Initialization
   document.addEventListener('DOMContentLoaded', () => {
+    // Homepage Top Flow (Hero + Hope Section) Two-Sided Purple Swirl Renderer
+    document.querySelectorAll('.home-top-flow').forEach((flow) => {
+      if (flow.querySelector('.home-swirl-right')) return;
+      const svgNS = 'http://www.w3.org/2000/svg';
+
+      const rightSvg = document.createElementNS(svgNS, 'svg');
+      rightSvg.setAttribute('class', 'home-swirl-right');
+      rightSvg.setAttribute('viewBox', '0 0 620 840');
+      rightSvg.setAttribute('preserveAspectRatio', 'xMaxYMin meet');
+      rightSvg.setAttribute('aria-hidden', 'true');
+
+      const rOuter = document.createElementNS(svgNS, 'path');
+      rOuter.setAttribute('class', 'hero-swirl-outer');
+      rOuter.setAttribute(
+        'd',
+        'M384 0C357 58 320 92 288 138C255 184 241 252 246 334C250 416 281 498 321 566C361 634 408 696 460 742C512 788 569 802 620 744L620 0Z'
+      );
+
+      const rInner = document.createElementNS(svgNS, 'path');
+      rInner.setAttribute('class', 'hero-swirl-inner');
+      rInner.setAttribute(
+        'd',
+        'M465 0C444 46 413 78 389 128C366 178 361 248 373 318C386 388 417 454 451 512C486 570 526 618 568 626C590 630 608 608 620 568L620 0Z'
+      );
+
+      rightSvg.appendChild(rOuter);
+      rightSvg.appendChild(rInner);
+
+      const leftSvg = document.createElementNS(svgNS, 'svg');
+      leftSvg.setAttribute('class', 'home-swirl-left');
+      leftSvg.setAttribute('viewBox', '0 0 420 680');
+      leftSvg.setAttribute('preserveAspectRatio', 'xMinYMax meet');
+      leftSvg.setAttribute('aria-hidden', 'true');
+
+      const lOuter = document.createElementNS(svgNS, 'path');
+      lOuter.setAttribute('class', 'hero-swirl-outer');
+      lOuter.setAttribute(
+        'd',
+        'M0 0C30 38 66 64 104 96C153 136 206 186 231 272C255 358 253 468 221 544C188 620 134 658 77 662C42 664 16 646 0 608Z'
+      );
+
+      const lInner = document.createElementNS(svgNS, 'path');
+      lInner.setAttribute('class', 'hero-swirl-inner');
+      lInner.setAttribute(
+        'd',
+        'M0 115C24 148 53 172 84 204C123 244 161 296 172 368C184 440 169 518 135 558C102 598 57 600 24 572C12 562 5 548 0 532Z'
+      );
+
+      leftSvg.appendChild(lOuter);
+      leftSvg.appendChild(lInner);
+
+      flow.insertBefore(leftSvg, flow.firstChild);
+      flow.insertBefore(rightSvg, flow.firstChild);
+      flow.classList.add('has-swirl-bg');
+    });
+
+    // Subpage Hero Subtle Purple Swirl Background Renderer (.page-hero & .move-hero)
+    document.querySelectorAll('.page-hero, .move-hero').forEach((subHero) => {
+      if (subHero.querySelector('.page-swirl-left')) return;
+      const svgNS = 'http://www.w3.org/2000/svg';
+
+      const leftSvg = document.createElementNS(svgNS, 'svg');
+      leftSvg.setAttribute('class', 'page-swirl-left');
+      leftSvg.setAttribute('viewBox', '0 0 460 360');
+      leftSvg.setAttribute('preserveAspectRatio', 'xMinYMin meet');
+      leftSvg.setAttribute('aria-hidden', 'true');
+
+      const lOuter = document.createElementNS(svgNS, 'path');
+      lOuter.setAttribute('class', 'page-swirl-outer');
+      lOuter.setAttribute(
+        'd',
+        'M286 0C264 58 226 96 185 128C143 160 108 214 69 262C42 296 18 322 0 336L0 0Z'
+      );
+
+      const lInner = document.createElementNS(svgNS, 'path');
+      lInner.setAttribute('class', 'page-swirl-inner');
+      lInner.setAttribute(
+        'd',
+        'M198 0C181 46 150 78 116 108C82 138 47 184 0 218L0 0Z'
+      );
+
+      leftSvg.appendChild(lOuter);
+      leftSvg.appendChild(lInner);
+
+      const rightSvg = document.createElementNS(svgNS, 'svg');
+      rightSvg.setAttribute('class', 'page-swirl-right');
+      rightSvg.setAttribute('viewBox', '0 0 480 680');
+      rightSvg.setAttribute('preserveAspectRatio', 'xMaxYMin meet');
+      rightSvg.setAttribute('aria-hidden', 'true');
+
+      const rOuter = document.createElementNS(svgNS, 'path');
+      rOuter.setAttribute('class', 'page-swirl-outer');
+      rOuter.setAttribute(
+        'd',
+        'M480 0C438 52 382 108 334 172C276 250 242 330 248 412C254 494 302 566 372 618C412 648 448 666 480 676Z'
+      );
+
+      const rInner = document.createElementNS(svgNS, 'path');
+      rInner.setAttribute('class', 'page-swirl-inner');
+      rInner.setAttribute(
+        'd',
+        'M480 64C446 108 402 156 366 212C322 280 298 352 304 424C310 496 348 558 404 602C434 626 458 640 480 648Z'
+      );
+
+      rightSvg.appendChild(rOuter);
+      rightSvg.appendChild(rInner);
+
+      subHero.insertBefore(rightSvg, subHero.firstChild);
+      subHero.insertBefore(leftSvg, subHero.firstChild);
+      subHero.classList.add('has-swirl-bg');
+    });
+
     const header = document.querySelector('.site-header');
     const mobileToggle = document.querySelector('.mobile-toggle');
     const mobileDrawer = document.querySelector('.mobile-drawer');
@@ -253,6 +365,150 @@
           }
         });
       });
+    }
+
+    // Minimal Black & White Google Maps (About Page & Move Page)
+    const aboutMapEl = document.getElementById('about-campus-map');
+    const moveMapEl = document.getElementById('move-campus-map');
+    if (aboutMapEl || moveMapEl) {
+      const starSvg =
+        '<svg class="campus-map-star" viewBox="0 0 36 36" aria-hidden="true">' +
+        '<polygon points="18,2 22.4,12.8 34,13.6 25,21.2 27.9,32.6 18,26.3 8.1,32.6 11,21.2 2,13.6 13.6,12.8" fill="#642992" stroke="#1E1E1E" stroke-width="1.4" stroke-linejoin="round"/>' +
+        '</svg>';
+
+      const createStyledMap = (container) => {
+        const map = window.L.map(container, {
+          zoomControl: false,
+          scrollWheelZoom: false,
+          attributionControl: true,
+        });
+
+        if (map.attributionControl) {
+          map.attributionControl.setPrefix(false);
+        }
+
+        container.addEventListener('click', () => map.scrollWheelZoom.enable());
+        container.addEventListener('mouseleave', () => map.scrollWheelZoom.disable());
+
+        window.L.tileLayer(
+          'https://mt{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}&apistyle=s.e:l%7Cp.v:off%2Cs.e:g%7Cp.s:-100%2Cs.t:6%7Cs.e:g%7Cp.c:%23c4d7ea',
+          {
+            subdomains: '0123',
+            maxZoom: 18,
+            minZoom: 9,
+            attribution: 'Map data &copy; <a href="https://www.google.com/maps" target="_blank" rel="noopener noreferrer">Google</a>',
+          }
+        ).addTo(map);
+
+        return map;
+      };
+
+      const addCampusMarker = (map, item) => {
+        const eyebrowHtml = item.eyebrow ? `<span class="campus-map-eyebrow">${item.eyebrow}</span>` : '';
+        const subHtml = item.sub ? `<span class="campus-map-sub">${item.sub}</span>` : '';
+        const html =
+          `<a class="campus-map-marker" href="${item.url}" target="_blank" rel="noopener noreferrer">` +
+          starSvg +
+          `<span class="campus-map-label">` +
+          eyebrowHtml +
+          `<span class="campus-map-title">${item.title}</span>` +
+          subHtml +
+          `</span>` +
+          `</a>`;
+
+        const icon = window.L.divIcon({
+          className: 'campus-map-icon',
+          html,
+          iconSize: [0, 0],
+          iconAnchor: [0, 0],
+        });
+
+        window.L.marker(item.coords, { icon }).addTo(map);
+      };
+
+      const initMaps = () => {
+        if (!window.L) return;
+
+        if (aboutMapEl) {
+          const isZh = (document.documentElement.lang || '').toLowerCase().startsWith('zh');
+          const map = createStyledMap(aboutMapEl);
+          const campuses = [
+            {
+              coords: [30.371068, -97.6675702],
+              eyebrow: isZh ? '奧斯汀華人教會' : 'Austin Chinese Church',
+              title: isZh ? '主堂區' : 'Main Campus',
+              sub: '',
+              url: 'https://goo.gl/maps/uURzsBEcegnbRWWK6',
+            },
+            {
+              coords: [30.289556, -97.801686],
+              eyebrow: isZh ? '奧斯汀華人教會' : 'Austin Chinese Church',
+              title: isZh ? '西南區' : 'Southwest Campus',
+              sub: 'Cedar Creek Elementary',
+              url: 'https://goo.gl/maps/671dHTtcB1BxRE528',
+            },
+          ];
+
+          campuses.forEach((c) => addCampusMarker(map, c));
+
+          const bounds = window.L.latLngBounds(campuses.map((c) => c.coords));
+          const fitAboutMap = () => {
+            const isNarrow = aboutMapEl.offsetWidth < 420;
+            map.fitBounds(bounds, {
+              paddingTopLeft: [isNarrow ? 32 : 48, 52],
+              paddingBottomRight: [isNarrow ? 185 : 225, 52],
+              animate: false,
+            });
+          };
+
+          fitAboutMap();
+          window.addEventListener('resize', () => {
+            map.invalidateSize();
+            fitAboutMap();
+          }, { passive: true });
+        }
+
+        if (moveMapEl) {
+          const map = createStyledMap(moveMapEl);
+          const valleyViewCoords = [30.28102, -97.82671];
+
+          addCampusMarker(map, {
+            coords: valleyViewCoords,
+            eyebrow: '<span class="lang-en">Austin Chinese Church</span><span class="lang-zh">奧斯汀華人教會</span>',
+            title: '<span class="lang-en">New Southwest Campus</span><span class="lang-zh">西南區新聚會地點</span>',
+            sub: 'Valley View Elementary',
+            url: 'https://www.google.com/maps/search/?api=1&query=Valley+View+Elementary+School+1201+S+Capital+of+Texas+Hwy+Austin+TX+78746',
+          });
+
+          const centerMoveMap = () => {
+            map.setView(valleyViewCoords, 13, { animate: false });
+            map.panBy([95, 0], { animate: false });
+          };
+
+          centerMoveMap();
+          window.addEventListener('resize', () => {
+            map.invalidateSize();
+            centerMoveMap();
+          }, { passive: true });
+        }
+      };
+
+      if (window.L) {
+        initMaps();
+      } else {
+        if (!document.querySelector('link[href*="leaflet.css"]')) {
+          const link = document.createElement('link');
+          link.rel = 'stylesheet';
+          link.href = 'https://unpkg.com/leaflet@1.9.4/dist/leaflet.css';
+          link.crossOrigin = '';
+          document.head.appendChild(link);
+        }
+        const script = document.createElement('script');
+        script.src = 'https://unpkg.com/leaflet@1.9.4/dist/leaflet.js';
+        script.crossOrigin = '';
+        script.onload = initMaps;
+        document.head.appendChild(script);
+      }
     }
   });
 })();
