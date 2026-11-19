@@ -1,0 +1,11 @@
+# macOS
+.DS_Store
+
+# Antigravity (agy)
+.agent/
+.agents/
+.agy/
+.antigravity/
+.gemini/
+AGENTS.md
+GEMINI.md
