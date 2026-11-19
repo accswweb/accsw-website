@@ -24,8 +24,8 @@
   --transition-speed: 0.3s;
   --border-radius-pill: 30px;
   --border-radius-card: 16px;
-  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.06);
-  --shadow-md: 0 6px 20px rgba(0, 0, 0, 0.08);
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.03);
+  --shadow-md: 0 2px 6px rgba(0, 0, 0, 0.04);
   --header-actual-height: 84px;
 }
 
@@ -161,12 +161,12 @@ li {
   z-index: 1000;
   background-color: var(--bg-white);
   border-bottom: 1px solid var(--border-light);
-  box-shadow: 0 1px 10px rgba(0, 0, 0, 0.04);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.02);
   transition: background-color 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
 }
 
 .site-header.scrolled {
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
 }
 
 /* Clear / Transparent Header (Until user scrolls down) */
@@ -186,7 +186,7 @@ li {
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--border-light);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
 }
 
 /* NO backdrop-filter here — it would create a CSS containing block that
@@ -196,7 +196,7 @@ li {
   backdrop-filter: none;
   -webkit-backdrop-filter: none;
   border-bottom: 1px solid var(--border-light);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
 }
 
 .header-container {
@@ -516,7 +516,7 @@ html[lang="zh"] .hero-section .hero-tagline {
   max-width: 530px;
   height: auto;
   border-radius: 28px;
-  box-shadow: 0 10px 32px rgba(0, 0, 0, 0.08);
+  box-shadow: var(--shadow-md);
   object-fit: cover;
 }
 
@@ -572,11 +572,10 @@ html[lang="zh"] .hero-section .hero-tagline {
   overflow: visible;
   background-color: var(--bg-white);
   background-image:
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 460 360'%3E%3Cpath fill='%23EBDAFD' fill-opacity='0.34' d='M286 0C264 58 226 96 185 128C143 160 108 214 69 262C42 296 18 322 0 336L0 0Z'/%3E%3Cpath fill='%23DDC2FA' fill-opacity='0.26' d='M198 0C181 46 150 78 116 108C82 138 47 184 0 218L0 0Z'/%3E%3C/svg%3E"),
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 480 680'%3E%3Cpath fill='%23EBDAFD' fill-opacity='0.34' d='M480 0C438 52 382 108 334 172C276 250 242 330 248 412C254 494 302 566 372 618C412 648 448 666 480 676Z'/%3E%3Cpath fill='%23DDC2FA' fill-opacity='0.26' d='M480 64C446 108 402 156 366 212C322 280 298 352 304 424C310 496 348 558 404 602C434 626 458 640 480 648Z'/%3E%3C/svg%3E");
-  background-repeat: no-repeat, no-repeat;
-  background-position: left top, right top;
-  background-size: auto 520px, auto 660px;
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 460 360'%3E%3Cpath fill='%23EBDAFD' fill-opacity='0.34' d='M286 0C264 58 226 96 185 128C143 160 108 214 69 262C42 296 18 322 0 336L0 0Z'/%3E%3Cpath fill='%23DDC2FA' fill-opacity='0.26' d='M198 0C181 46 150 78 116 108C82 138 47 184 0 218L0 0Z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: left top;
+  background-size: auto 520px;
   color: var(--text-primary);
   padding: 4.5rem 0 2.25rem;
   text-align: center;
@@ -592,17 +591,6 @@ html[lang="zh"] .hero-section .hero-tagline {
   left: 0;
   width: 34%;
   height: 520px;
-  pointer-events: none;
-  user-select: none;
-  z-index: 0;
-}
-
-.page-swirl-right {
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 38%;
-  height: 660px;
   pointer-events: none;
   user-select: none;
   z-index: 0;
@@ -738,7 +726,7 @@ html[lang="zh"] .hero-section .hero-tagline {
   width: 34px;
   height: 34px;
   flex-shrink: 0;
-  filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.24));
+  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.12));
 }
 
 .campus-map-label {
@@ -746,7 +734,7 @@ html[lang="zh"] .hero-section .hero-tagline {
   color: #FFFFFF;
   padding: 8px 13px;
   border-radius: 8px;
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.22);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
   white-space: nowrap;
   text-align: left;
   line-height: 1.22;
@@ -917,7 +905,7 @@ html[lang="zh"] .hero-section .hero-tagline {
   border-radius: 8px;
   background-color: #EAEAEA;
   border: 1px solid var(--border-light);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+  box-shadow: var(--shadow-sm);
   margin-bottom: 1.25rem;
 }
 
@@ -993,7 +981,7 @@ html[lang="zh"] .hero-section .hero-tagline {
   padding: 0.4rem 1rem;
   border-radius: 30px;
   letter-spacing: 0.5px;
-  box-shadow: 0 3px 10px rgba(100, 41, 146, 0.2);
+  box-shadow: 0 1px 3px rgba(100, 41, 146, 0.1);
   white-space: nowrap;
 }
 
@@ -1147,11 +1135,6 @@ html[lang="zh"] .hero-section .hero-tagline {
    Welcome Page Styles
    ========================================================================== */
 .pastor-welcome-card {
-  background-color: var(--bg-white);
-  border-radius: var(--border-radius-card);
-  padding: 3rem 2.5rem;
-  border: 1px solid var(--border-light);
-  box-shadow: var(--shadow-sm);
   display: grid;
   grid-template-columns: 1fr 270px;
   gap: 3rem;
@@ -1212,11 +1195,6 @@ html[lang="zh"] .hero-section .hero-tagline {
   grid-template-columns: 1.15fr 0.85fr;
   gap: 2.5rem;
   align-items: center;
-  background: var(--bg-white);
-  border: 1px solid var(--border-light);
-  border-radius: var(--border-radius-card);
-  padding: 2.25rem 2.5rem;
-  box-shadow: var(--shadow-sm);
   max-width: 950px;
   margin: 0 auto;
 }
@@ -1488,7 +1466,6 @@ html[lang="zh"] .hero-section .hero-tagline {
   .pastor-welcome-card {
     grid-template-columns: 1fr;
     gap: 2rem;
-    padding: 2rem 1.5rem;
   }
 
   .pastor-welcome-img-wrap {
@@ -1502,7 +1479,6 @@ html[lang="zh"] .hero-section .hero-tagline {
   .beyond-sundays-card {
     grid-template-columns: 1fr;
     gap: 1.5rem;
-    padding: 1.75rem 1.25rem;
     text-align: center;
   }
 
@@ -1579,7 +1555,7 @@ html[lang="zh"] .hero-section .hero-tagline {
   padding: 0.55rem 1rem;
   font-size: 0.875rem;
   width: 100%;
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.06);
   position: relative;
   z-index: 1001;
 }
@@ -1637,11 +1613,10 @@ html[lang="zh"] .hero-section .hero-tagline {
   overflow: visible;
   background-color: var(--bg-white);
   background-image:
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 460 360'%3E%3Cpath fill='%23EBDAFD' fill-opacity='0.34' d='M286 0C264 58 226 96 185 128C143 160 108 214 69 262C42 296 18 322 0 336L0 0Z'/%3E%3Cpath fill='%23DDC2FA' fill-opacity='0.26' d='M198 0C181 46 150 78 116 108C82 138 47 184 0 218L0 0Z'/%3E%3C/svg%3E"),
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 480 680'%3E%3Cpath fill='%23EBDAFD' fill-opacity='0.34' d='M480 0C438 52 382 108 334 172C276 250 242 330 248 412C254 494 302 566 372 618C412 648 448 666 480 676Z'/%3E%3Cpath fill='%23DDC2FA' fill-opacity='0.26' d='M480 64C446 108 402 156 366 212C322 280 298 352 304 424C310 496 348 558 404 602C434 626 458 640 480 648Z'/%3E%3C/svg%3E");
-  background-repeat: no-repeat, no-repeat;
-  background-position: left top, right top;
-  background-size: auto 520px, auto 660px;
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 460 360'%3E%3Cpath fill='%23EBDAFD' fill-opacity='0.34' d='M286 0C264 58 226 96 185 128C143 160 108 214 69 262C42 296 18 322 0 336L0 0Z'/%3E%3Cpath fill='%23DDC2FA' fill-opacity='0.26' d='M198 0C181 46 150 78 116 108C82 138 47 184 0 218L0 0Z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: left top;
+  background-size: auto 520px;
   padding: 4rem 0 3rem;
   text-align: center;
 }
@@ -1680,7 +1655,7 @@ html[lang="zh"] .lang-en { display: none !important; }
   padding: 4px;
   border-radius: var(--border-radius-pill);
   margin-bottom: 2rem;
-  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.08);
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.04);
 }
 
 .move-lang-btn {
@@ -1702,7 +1677,7 @@ html[lang="zh"] .lang-en { display: none !important; }
 .move-lang-btn.active, .move-lang-btn:hover {
   background: var(--primary-color);
   color: #FFFFFF;
-  box-shadow: 0 2px 6px rgba(100, 41, 146, 0.3);
+  box-shadow: 0 1px 2px rgba(100, 41, 146, 0.15);
 }
 
 /* Move Date Highlight Banner */
@@ -1712,7 +1687,7 @@ html[lang="zh"] .lang-en { display: none !important; }
   border-left: 6px solid var(--primary-color);
   border-radius: var(--border-radius-card);
   padding: 1.5rem 2rem;
-  max-width: 860px;
+  max-width: 680px;
   margin: 0 auto 2rem;
   box-shadow: var(--shadow-sm);
   display: flex;

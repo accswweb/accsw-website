@@ -86,56 +86,49 @@
 
   // 3. Standard Page Initialization
   document.addEventListener('DOMContentLoaded', () => {
+    const createSwirlSvg = (className, viewBox, preserveAspectRatio, paths) => {
+      const svgNS = 'http://www.w3.org/2000/svg';
+      const svg = document.createElementNS(svgNS, 'svg');
+      svg.setAttribute('class', className);
+      svg.setAttribute('viewBox', viewBox);
+      svg.setAttribute('preserveAspectRatio', preserveAspectRatio);
+      svg.setAttribute('aria-hidden', 'true');
+
+      paths.forEach(([pathClass, d]) => {
+        const path = document.createElementNS(svgNS, 'path');
+        path.setAttribute('class', pathClass);
+        path.setAttribute('d', d);
+        svg.appendChild(path);
+      });
+
+      return svg;
+    };
+
     // Homepage Top Flow (Hero + Hope Section) Two-Sided Purple Swirl Renderer
     document.querySelectorAll('.home-top-flow').forEach((flow) => {
       if (flow.querySelector('.home-swirl-right')) return;
-      const svgNS = 'http://www.w3.org/2000/svg';
 
-      const rightSvg = document.createElementNS(svgNS, 'svg');
-      rightSvg.setAttribute('class', 'home-swirl-right');
-      rightSvg.setAttribute('viewBox', '0 0 620 840');
-      rightSvg.setAttribute('preserveAspectRatio', 'xMaxYMin meet');
-      rightSvg.setAttribute('aria-hidden', 'true');
+      const rightSvg = createSwirlSvg('home-swirl-right', '0 0 620 840', 'xMaxYMin meet', [
+        [
+          'hero-swirl-outer',
+          'M384 0C357 58 320 92 288 138C255 184 241 252 246 334C250 416 281 498 321 566C361 634 408 696 460 742C512 788 569 802 620 744L620 0Z',
+        ],
+        [
+          'hero-swirl-inner',
+          'M465 0C444 46 413 78 389 128C366 178 361 248 373 318C386 388 417 454 451 512C486 570 526 618 568 626C590 630 608 608 620 568L620 0Z',
+        ],
+      ]);
 
-      const rOuter = document.createElementNS(svgNS, 'path');
-      rOuter.setAttribute('class', 'hero-swirl-outer');
-      rOuter.setAttribute(
-        'd',
-        'M384 0C357 58 320 92 288 138C255 184 241 252 246 334C250 416 281 498 321 566C361 634 408 696 460 742C512 788 569 802 620 744L620 0Z'
-      );
-
-      const rInner = document.createElementNS(svgNS, 'path');
-      rInner.setAttribute('class', 'hero-swirl-inner');
-      rInner.setAttribute(
-        'd',
-        'M465 0C444 46 413 78 389 128C366 178 361 248 373 318C386 388 417 454 451 512C486 570 526 618 568 626C590 630 608 608 620 568L620 0Z'
-      );
-
-      rightSvg.appendChild(rOuter);
-      rightSvg.appendChild(rInner);
-
-      const leftSvg = document.createElementNS(svgNS, 'svg');
-      leftSvg.setAttribute('class', 'home-swirl-left');
-      leftSvg.setAttribute('viewBox', '0 0 420 680');
-      leftSvg.setAttribute('preserveAspectRatio', 'xMinYMax meet');
-      leftSvg.setAttribute('aria-hidden', 'true');
-
-      const lOuter = document.createElementNS(svgNS, 'path');
-      lOuter.setAttribute('class', 'hero-swirl-outer');
-      lOuter.setAttribute(
-        'd',
-        'M0 0C30 38 66 64 104 96C153 136 206 186 231 272C255 358 253 468 221 544C188 620 134 658 77 662C42 664 16 646 0 608Z'
-      );
-
-      const lInner = document.createElementNS(svgNS, 'path');
-      lInner.setAttribute('class', 'hero-swirl-inner');
-      lInner.setAttribute(
-        'd',
-        'M0 115C24 148 53 172 84 204C123 244 161 296 172 368C184 440 169 518 135 558C102 598 57 600 24 572C12 562 5 548 0 532Z'
-      );
-
-      leftSvg.appendChild(lOuter);
-      leftSvg.appendChild(lInner);
+      const leftSvg = createSwirlSvg('home-swirl-left', '0 0 420 680', 'xMinYMax meet', [
+        [
+          'hero-swirl-outer',
+          'M0 0C30 38 66 64 104 96C153 136 206 186 231 272C255 358 253 468 221 544C188 620 134 658 77 662C42 664 16 646 0 608Z',
+        ],
+        [
+          'hero-swirl-inner',
+          'M0 115C24 148 53 172 84 204C123 244 161 296 172 368C184 440 169 518 135 558C102 598 57 600 24 572C12 562 5 548 0 532Z',
+        ],
+      ]);
 
       flow.insertBefore(leftSvg, flow.firstChild);
       flow.insertBefore(rightSvg, flow.firstChild);
@@ -145,55 +138,18 @@
     // Subpage Hero Subtle Purple Swirl Background Renderer (.page-hero & .move-hero)
     document.querySelectorAll('.page-hero, .move-hero').forEach((subHero) => {
       if (subHero.querySelector('.page-swirl-left')) return;
-      const svgNS = 'http://www.w3.org/2000/svg';
 
-      const leftSvg = document.createElementNS(svgNS, 'svg');
-      leftSvg.setAttribute('class', 'page-swirl-left');
-      leftSvg.setAttribute('viewBox', '0 0 460 360');
-      leftSvg.setAttribute('preserveAspectRatio', 'xMinYMin meet');
-      leftSvg.setAttribute('aria-hidden', 'true');
+      const leftSvg = createSwirlSvg('page-swirl-left', '0 0 460 360', 'xMinYMin meet', [
+        [
+          'page-swirl-outer',
+          'M286 0C264 58 226 96 185 128C143 160 108 214 69 262C42 296 18 322 0 336L0 0Z',
+        ],
+        [
+          'page-swirl-inner',
+          'M198 0C181 46 150 78 116 108C82 138 47 184 0 218L0 0Z',
+        ],
+      ]);
 
-      const lOuter = document.createElementNS(svgNS, 'path');
-      lOuter.setAttribute('class', 'page-swirl-outer');
-      lOuter.setAttribute(
-        'd',
-        'M286 0C264 58 226 96 185 128C143 160 108 214 69 262C42 296 18 322 0 336L0 0Z'
-      );
-
-      const lInner = document.createElementNS(svgNS, 'path');
-      lInner.setAttribute('class', 'page-swirl-inner');
-      lInner.setAttribute(
-        'd',
-        'M198 0C181 46 150 78 116 108C82 138 47 184 0 218L0 0Z'
-      );
-
-      leftSvg.appendChild(lOuter);
-      leftSvg.appendChild(lInner);
-
-      const rightSvg = document.createElementNS(svgNS, 'svg');
-      rightSvg.setAttribute('class', 'page-swirl-right');
-      rightSvg.setAttribute('viewBox', '0 0 480 680');
-      rightSvg.setAttribute('preserveAspectRatio', 'xMaxYMin meet');
-      rightSvg.setAttribute('aria-hidden', 'true');
-
-      const rOuter = document.createElementNS(svgNS, 'path');
-      rOuter.setAttribute('class', 'page-swirl-outer');
-      rOuter.setAttribute(
-        'd',
-        'M480 0C438 52 382 108 334 172C276 250 242 330 248 412C254 494 302 566 372 618C412 648 448 666 480 676Z'
-      );
-
-      const rInner = document.createElementNS(svgNS, 'path');
-      rInner.setAttribute('class', 'page-swirl-inner');
-      rInner.setAttribute(
-        'd',
-        'M480 64C446 108 402 156 366 212C322 280 298 352 304 424C310 496 348 558 404 602C434 626 458 640 480 648Z'
-      );
-
-      rightSvg.appendChild(rOuter);
-      rightSvg.appendChild(rInner);
-
-      subHero.insertBefore(rightSvg, subHero.firstChild);
       subHero.insertBefore(leftSvg, subHero.firstChild);
       subHero.classList.add('has-swirl-bg');
     });
